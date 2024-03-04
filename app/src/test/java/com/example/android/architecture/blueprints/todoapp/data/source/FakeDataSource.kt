@@ -30,7 +30,7 @@ class FakeDataSource(var tasks: MutableList<Task>? = mutableListOf()) : TasksDat
     }
 
     override suspend fun saveTask(task: Task) {
-        TODO("Not yet implemented")
+        tasks?.add(task)
     }
 
     override suspend fun completeTask(task: Task) {
