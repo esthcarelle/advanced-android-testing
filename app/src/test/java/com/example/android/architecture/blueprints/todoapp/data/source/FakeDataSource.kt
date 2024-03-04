@@ -10,7 +10,7 @@ class FakeDataSource(var tasks: MutableList<Task>? = mutableListOf()) : TasksDat
     }
 
     override suspend fun getTasks(): Result<List<Task>> {
-        TODO("Not yet implemented")
+
     }
 
     override suspend fun refreshTasks() {
@@ -54,7 +54,7 @@ class FakeDataSource(var tasks: MutableList<Task>? = mutableListOf()) : TasksDat
     }
 
     override suspend fun deleteAllTasks() {
-        TODO("Not yet implemented")
+        tasks?.clear()
     }
 
     override suspend fun deleteTask(taskId: String) {
