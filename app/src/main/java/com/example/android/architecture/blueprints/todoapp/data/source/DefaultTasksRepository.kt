@@ -35,9 +35,8 @@ import kotlinx.coroutines.withContext
  */
 class DefaultTasksRepository private constructor(private val tasksRemoteDataSource: TasksDataSource,
                                                  private val tasksLocalDataSource: TasksDataSource,
-
+                                                 private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
                                                  ) {
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 
     companion object {
         @Volatile
