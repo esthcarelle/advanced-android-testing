@@ -33,8 +33,8 @@ import kotlinx.coroutines.withContext
 /**
  * Concrete implementation to load tasks from the data sources into a cache.
  */
-class DefaultTasksRepository private constructor(private val tasksRemoteDataSource: TasksDataSource,
-                                                 private val tasksLocalDataSource: TasksDataSource,
+class DefaultTasksRepository private constructor(private var tasksRemoteDataSource: TasksDataSource,
+                                                 private var tasksLocalDataSource: TasksDataSource,
                                                  private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
                                                  ) {
 
@@ -43,10 +43,8 @@ class DefaultTasksRepository private constructor(private val tasksRemoteDataSour
         private var INSTANCE: DefaultTasksRepository? = null
 
         fun getRepository(app: Application): DefaultTasksRepository {
-            return INSTANCE ?: synchronized(this) {
-                DefaultTasksRepository(app).also {
-                    INSTANCE = it
-                }
+            return INSTANCE ?: synchronized(this){
+                val database = Room.databaseBuilder(app,ToDoDatabase::class.java,"Task.db").build()
             }
         }
     }
