@@ -45,6 +45,9 @@ class DefaultTasksRepository private constructor(private var tasksRemoteDataSour
         fun getRepository(app: Application): DefaultTasksRepository {
             return INSTANCE ?: synchronized(this){
                 val database = Room.databaseBuilder(app,ToDoDatabase::class.java,"Task.db").build()
+                DefaultTasksRepository(TasksRemoteDataSource, TasksLocalDataSource(database.taskDao())).also {
+                    INSTANCE = it
+                }
             }
         }
     }
