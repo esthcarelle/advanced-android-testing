@@ -51,16 +51,6 @@ class DefaultTasksRepository private constructor(private var tasksRemoteDataSour
             }
         }
     }
-
-    init {
-        val database = Room.databaseBuilder(application.applicationContext,
-            ToDoDatabase::class.java, "Tasks.db")
-            .build()
-
-        tasksRemoteDataSource = TasksRemoteDataSource
-        tasksLocalDataSource = TasksLocalDataSource(database.taskDao())
-    }
-
     suspend fun getTasks(forceUpdate: Boolean = false): Result<List<Task>> {
         if (forceUpdate) {
             try {
