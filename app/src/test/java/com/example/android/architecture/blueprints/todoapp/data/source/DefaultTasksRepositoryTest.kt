@@ -4,6 +4,6 @@ import com.example.android.architecture.blueprints.todoapp.data.Task
 import org.junit.jupiter.api.Assertions.*
 
 class DefaultTasksRepositoryTest{
-    val task1 = Task("Title 1","Description 1")
-
+    private val task1 = Task("Title1","Description1")
+    private val task2 = Task("Title2", "Description2")
 }
