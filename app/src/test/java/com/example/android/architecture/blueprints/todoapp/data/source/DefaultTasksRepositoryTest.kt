@@ -7,4 +7,5 @@ class DefaultTasksRepositoryTest{
     private val task1 = Task("Title1","Description1")
     private val task2 = Task("Title2", "Description2")
     private val task3 = Task("Title3", "Description3")
+    private val remoteTasks = listOf(task1, task2).sortedBy { it.id }
 }
