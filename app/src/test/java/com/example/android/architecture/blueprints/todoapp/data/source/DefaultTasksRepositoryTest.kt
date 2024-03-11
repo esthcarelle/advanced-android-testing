@@ -1,6 +1,7 @@
 package com.example.android.architecture.blueprints.todoapp.data.source
 
 import com.example.android.architecture.blueprints.todoapp.data.Task
+import org.junit.Before
 import org.junit.jupiter.api.Assertions.*
 
 class DefaultTasksRepositoryTest{
@@ -17,4 +18,8 @@ class DefaultTasksRepositoryTest{
     // Class under test
     private lateinit var tasksRepository: DefaultTasksRepository
 
+    @Before
+    fun createRepository(){
+
+    }
 }
