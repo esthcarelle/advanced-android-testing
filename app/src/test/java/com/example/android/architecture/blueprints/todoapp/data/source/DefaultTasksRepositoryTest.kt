@@ -21,5 +21,6 @@ class DefaultTasksRepositoryTest{
     @Before
     fun createRepository(){
         tasksRemoteDataSource = FakeDataSource(remoteTasks.toMutableList())
+        tasksLocalDataSource = FakeDataSource(localTasks.toMutableList())
     }
 }
