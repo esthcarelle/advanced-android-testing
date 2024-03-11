@@ -20,6 +20,6 @@ class DefaultTasksRepositoryTest{
 
     @Before
     fun createRepository(){
-
+        tasksRemoteDataSource = FakeDataSource(remoteTasks.toMutableList())
     }
 }
